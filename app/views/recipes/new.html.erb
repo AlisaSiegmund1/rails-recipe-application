@@ -1,0 +1,13 @@
+<div class="container">
+  <div style="text-align: left">
+    <h1>Create new Recipe</h1>
+    <div style="width: 500px">
+      <%= simple_form_for (@recipe) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :image_url %>
+        <%= f.submit "add recipe", class: "btn btn-outline-secondary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

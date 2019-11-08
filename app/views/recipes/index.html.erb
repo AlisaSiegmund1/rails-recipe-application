@@ -1,0 +1,20 @@
+<div class="container">
+  <h5 style="text-align: center; margin-top:20px">All Recipes [<%=Recipe.count%>]</h5>
+<button type="button" style="align-items: right; margin-bottom: 20px" class="btn btn-outline-secondary"><%= link_to 'Create new Recipe', new_recipe_path %></button>
+  <div class="cards-container d-flex  justify-content-between flex-wrap">
+    <% @recipes.each do |recipe| %>
+    <div class="row">
+      <div class="col-12-lg" style="padding: 0 0">
+        <div class="card">
+        <img class='card-img-top' style="width: 270px; height:340px"src=<%=recipe.image_url%>>
+        <div class="card-body">
+          <!-- <a href="#" class="stretched-link">Go somewhere</a> -->
+          <h5 class="card-text"><%= link_to recipe.name, recipe_path(recipe)%></h5>
+        </div>
+      </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
+

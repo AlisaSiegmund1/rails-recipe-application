@@ -1,0 +1,45 @@
+<div class="container">
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=@recipe.image_url%>)">
+    <%= @recipe.name %>
+  </div>
+  <div class="content d-flex justify-content-between">
+
+    <div class="recipe-info" style="text-align: left">
+      <h3>Description:</h3>
+      <%= @recipe.description %>
+      <br>
+      <button type="button" class="btn btn-outline-secondary"></i> <%= link_to 'edit', edit_recipe_path %></button>
+
+
+    </div>
+
+    <div class="ingredients-and-form">
+      <div class="ingredients" style="text-align: left; margin-bottom: 50px">
+      <h3>Ingredient list:</h3>
+        <% @recipe.doses.each do |dose| %>
+          <ul>
+            <li>
+            <strong><%= dose.description %></strong>
+            <%= dose.ingredient.name %>
+            <%= dose.ingredient.name %>
+            <%= link_to '[delete]', dose_path(dose),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+      <div class="form-dose" style="text-align: left">
+        <h3>Add a new ingredient</h3>
+        <div style="width: 500px">
+          <%= simple_form_for ([@recipe, @dose]) do |f| %>
+           <%= f.input :ingredient_id, collection: Ingredient.all %>
+           <%= f.input :description %>
+            <%= f.submit "Add ingredient", class: "btn btn-outline-secondary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
