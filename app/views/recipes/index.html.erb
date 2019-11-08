@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-12-lg" style="padding: 0 0">
         <div class="card">
-        <img class='card-img-top' style="width: 270px; height:340px"src=<%=recipe.image_url%>>
+        <img class='card-img-top' src=<%= cl_image_tag @recipe.photo, height: 340, width: 270, crop: :fill %>>
         <div class="card-body">
           <!-- <a href="#" class="stretched-link">Go somewhere</a> -->
           <h5 class="card-text"><%= link_to recipe.name, recipe_path(recipe)%></h5>
