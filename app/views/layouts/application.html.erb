@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsMisterCocktail</title>
+    <title>Cool Recipe Collection</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,11 +11,11 @@
   </head>
 
   <body>
-  <ul class="nav justify-content-center" style="padding: 30px; border-bottom: 1px solid black">
-    <li class="nav-item">
-      <h1 style="text-align: center">Cool Recipe Collection</h1>
-    </li>
-  </ul>
+  <div class="navbar-lewagon" style="padding: 30px; border-bottom: 1px solid black">
+      <h1> <%=link_to 'Cool Recipe Collection', recipes_path%></h1>
+      <button type="button" class="btn-shadow"><%= link_to 'Create new Recipe', new_recipe_path %></button>
+
+  </div>
     <%= yield %>
     <%= javascript_include_tag "application" %> <!-- from app/assets/javascripts/application.js -->
     <%= javascript_pack_tag "application" %>    <!-- from app/javascript/packs/application.js -->
